@@ -1,0 +1,63 @@
+# Ignore thumbnails created by windows
+._*
+Thumbs.db
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+~*
+
+# Ignore vs code settings
+.vscode/
+
+# Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.dll
+*.lib
+*.sbr
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Compiled Python files
+*.pyc
+**/*.pyc
+
+# Compiled Java files
+.class
+**/*.class
+
+# Compiled C++ files
+*.out
+
+# Application specific files
+node_modules
+.sass-cache
+target
+
+# Eclipse project settings
+.project
+.classpath
+.settings
+
+# IntelliJ
+.idea
+*.iml
+.idea/
