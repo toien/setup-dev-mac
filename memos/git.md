@@ -1,9 +1,8 @@
 ## Git
 
-### .gitignore
+- [~/.gitconfig](../assets/.gitconfig)
+- [~/.gitignore_global](../assets/.gitignore_global)
 
-`.gitignore_global`
+### set proxy for github
 
-### set proxy for github projects
-
-
+Refer: [internet](../memos/internet.md)

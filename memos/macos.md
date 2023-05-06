@@ -26,10 +26,17 @@ autoload -U compinit; compinit
 
 # remove duplicate entries in $PATH
 typeset -aU path
+
+# ^U: delete from current position to begining of line
+bindkey \^U backward-kill-line
 ```
 
 ## Tmux
 
-`.tmux.conf`
+[~/.tmux.conf](../assets/.tmux.conf)
+
+### plugin manager
+
+[Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
 ## Homebrew

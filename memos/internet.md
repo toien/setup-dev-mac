@@ -20,6 +20,7 @@ function noproxy {
 `~/.ssh/config`
 
 ```
+# Reuse connection
 # Host *
 #   ControlMaster auto
 #   ControlPath ~/.ssh/ssh_mux_%h_%p_%r
@@ -27,8 +28,11 @@ function noproxy {
 Host *
     SendEnv LANG LC_*
 
+# Use proxy when access github
 Host github.com
     HostName github.com
     User git
     ProxyCommand nc -v -x 127.0.0.1:1080 %h %p
 ```
+
+Refer: [给 Git 设置代理](https://toien.github.io/2019/07/16/using-git-with-proxy/)

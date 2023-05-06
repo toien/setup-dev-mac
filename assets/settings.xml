@@ -163,6 +163,15 @@ under the License.
       <name>aliyun maven</name>
       <url>https://maven.aliyun.com/nexus/content/repositories/central/</url>
     </mirror>
+
+    <!-- required if maven version >= 3.8.1, and your private maven repo use http protocol -->
+    <mirror>
+      <id>maven-default-http-blocker</id>
+      <mirrorOf>dummy</mirrorOf>
+      <name>Dummy mirror to override default blocking mirror that blocks http</name>
+      <url>http://0.0.0.0/</url>
+      <blocked>false</blocked>
+    </mirror>
   </mirrors>
 
   <!-- profiles

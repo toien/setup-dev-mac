@@ -31,6 +31,8 @@ export JAVA_HOME=$JAVA_8_HOME
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
+Also, [Coursier](https://get-coursier.io/) offers java version management ablity. It can be installed by Homebrew.
+
 ## Maven
 
 ### install
@@ -49,14 +51,17 @@ export PATH=$MAVEN_HOME'/bin':$PATH
 
 ### configs
 
-`~/.m2/settings.xml`: 
-
+[~/.m2/settings.xml](../assets/settings.xml)
 
 #### plugin
 
-archetype: copy and paste: 
+Refresh archetype to local:
 
-Refer: [](https://maven.apache.org/archetype/maven-archetype-plugin/specification/archetype-catalog.html)
+```zsh
+curl https://repo.maven.apache.org/maven2/archetype-catalog.xml -o ~/.m2/archetype-catalog.xml
+```
+
+Refer: [archetype-catalog.html](https://maven.apache.org/archetype/maven-archetype-plugin/specification/archetype-catalog.html)
 
 ## Gradle
 
@@ -75,4 +80,4 @@ export PATH=$GRADLE_HOME'/bin':$PATH
 
 ### configs
 
-`~/.gradle/init.gradle`
+[~/.gradle/init.gradle](../assets/init.gradle)
