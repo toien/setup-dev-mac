@@ -46,14 +46,14 @@ set smartcase
 " netrw file explore
 let g:netrw_liststyle = 3
 
-" color schema config
+" Color schema
 " 
 color molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
 
-filetype on "文件类型
+filetype on " 文件类型
 
 set encoding=utf-8 " 编码为utf8
 

@@ -228,6 +228,7 @@ under the License.
     <profile>
       <id>aliyun</id>
       <repositories>
+        <!-- 503 error, see: curl -L 'https://maven.aliyun.com/repository/spring/org/springframework/boot/spring-boot-dependencies/2.1.17.RELEASE/spring-boot-dependencies-2.1.17.RELEASE.pom' | less
         <repository>
           <id>spring</id>
           <url>https://maven.aliyun.com/repository/spring</url>
@@ -238,6 +239,7 @@ under the License.
             <enabled>true</enabled>
           </snapshots>
         </repository>
+         -->
         <repository>
           <id>jcenter</id>
           <url>https://maven.aliyun.com/repository/public</url>
