@@ -6,6 +6,15 @@
 
 ### install ohmyzsh
 
+enable plugins:
+```
+plugins=(
+  git
+  fnm
+  docker
+)
+```
+
 ### customize
 
 `.zshrc`: 

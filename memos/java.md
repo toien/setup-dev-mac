@@ -7,9 +7,8 @@ Amazon Corretto
 ### multiple versions
 
 `.zshenv`: 
-
 ```zsh
-# display all envs:
+# display all versions:
 # /usr/libexec/java_home -V
 
 export JAVA_8_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home'
@@ -35,12 +34,10 @@ Also, [Coursier](https://get-coursier.io/) offers java version management ablity
 
 ## Maven
 
+
 ### install
 
 ### envs
-
-Refer: [](https://maven.apache.org/configure.html)
-
 `.zshenv`: 
 ```zsh
 # maven
@@ -48,6 +45,8 @@ export MAVEN_HOME='/Users/sherry/opt/apache-maven-3.9.0'
 export MAVEN_OPTS='-Xms256m -Xmx512m -XX:MaxMetaSpaceSize=128m'
 export PATH=$MAVEN_HOME'/bin':$PATH
 ```
+
+Refer: [](https://maven.apache.org/configure.html)
 
 ### configs
 

@@ -5,13 +5,18 @@
 ```zsh
 # enable proxy
 function setproxy {
-    export HTTP_PROXY=socks5://127.0.0.1:1080
-    export HTTPS_PROXY=socks5://127.0.0.1:1080
+    local ip;
+    ip=$(ipconfig getifaddr en0)
+
+    export HTTP_PROXY="socks5://$ip:1080"
+    export HTTPS_PROXY="socks5://$ip:1080"
+    # proxy envs will bypass to minikube, ignore proxy for intranet network
+    export NO_PROXY=localhost,127.0.0.1,192.168.50.0/24,10.44.0.0/23,10.96.0.0/12,192.168.49.0/24
 }
 
 # disable proxy
 function noproxy {
-    unset HTTP_PROXY HTTPS_PROXY
+    unset HTTP_PROXY HTTPS_PROXY NO_PROXY
 }
 ```
 
