@@ -34,6 +34,7 @@ Also, [Coursier](https://get-coursier.io/) offers java version management ablity
 
 ## Maven
 
+3.9.x
 
 ### install
 
@@ -63,6 +64,8 @@ curl https://repo.maven.apache.org/maven2/archetype-catalog.xml -o ~/.m2/archety
 Refer: [archetype-catalog.html](https://maven.apache.org/archetype/maven-archetype-plugin/specification/archetype-catalog.html)
 
 ## Gradle
+
+7.6
 
 ### install
 

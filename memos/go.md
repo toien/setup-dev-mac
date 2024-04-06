@@ -1,10 +1,13 @@
 ## GoLang
 
-### install(homebrew)
+### install
+
+by homebrew
 
 ### multiple versions
 
-`.zshrc`: 
+[.zshrc](../assets/.zshrc): 
+
 ```zsh
 # switch go version functions, by change env
 go17() {

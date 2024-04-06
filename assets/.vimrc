@@ -41,21 +41,25 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set ignorecase
 set smartcase
 
-" syntax on 语法高亮
-
 " netrw file explore
 let g:netrw_liststyle = 3
 
 " Color schema
-" 
-color molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
-set background=dark
+syntax enable
+let g:solarized_termcolors=256
+colorscheme solarized
+" set background=light
 
-filetype on " 文件类型
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 
-set encoding=utf-8 " 编码为utf8
+
+filetype on         " 文件类型
+
+set encoding=utf-8  " 编码为utf8
 
 set hlsearch
 
@@ -63,14 +67,31 @@ set pastetoggle=<F10>
 
 set nrformats= "设置10进制"
 
+" Change cursor shape on different mode
+if empty($TMUX)
+  " Vertical bar in insert mode
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  " Block in normal mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  " Underline in replace mode
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+else
+  " Vertical bar in insert mode
+  let &t_SI = "\e[5 q"
+  " Block in normal mode
+  let &t_SR = "\e[4 q"
+  " Underline in replace mode
+  let &t_EI = "\e[1 q"
+endif
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
+Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'tpope/vim-fugitive'
+Plug 'wincent/terminus'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 

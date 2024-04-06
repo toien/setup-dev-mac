@@ -2,7 +2,7 @@
 
 ### `.vimrc`
 
-`~/.vimrc`
+[~/.vimrc](../assets/.vimrc)
 
 ### color schema
 
@@ -14,4 +14,4 @@
 
 ## editorconfig
 
-`~/.editorconfig`
+[~/.editorconfig](../assets/.editorconfig)

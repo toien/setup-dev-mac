@@ -1,9 +1,12 @@
 #!bin/bash
 
-set -eux
+set -eu
 
-SUBSCRIBE_URL='{SUB_URL}'
+echo 'Start test ss!'
+
+
 COLOR_GREEN='\033[0;32m'
+COLOR_RED='\033[0;31m'
 COLOR_NO='\033[0m'
 
 
@@ -23,10 +26,12 @@ do
   # echo "$status, $total_time"
 
   if [[ $status -eq 200 && $(echo "$total_time < 3" | bc -l) -eq 1 ]]; then
-    color=$COLOR_GREEN
+    prefix="${COLOR_GREEN}[SUCCESS]${COLOR_NO}"
   else
-    color=$COLOR_NO
+    prefix="${COLOR_RED}[FAILED]${COLOR_NO} "
   fi
   
-  printf "${color}Testing $origin: $resp $COLOR_NO\n"
+  printf "$prefix %s %s\n" "$origin" "$resp"
 done
+
+echo ''
