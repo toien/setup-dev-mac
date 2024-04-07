@@ -128,7 +128,7 @@ function show_proxy {
     env | grep -v CLASSPATH | grep -i proxy
 }
 
-export SETUP_HOME="$HOME/github/setup-dev-mac"
+export SETUP_HOME="$HOME/projects/github/setup-dev-mac"
 
 function test_proxy {
     local provider=$1
