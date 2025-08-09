@@ -21,8 +21,8 @@ do
   resp=$(curl -sI --connect-timeout 3 -m 5 -w "http_code:%{http_code} total_time:%{time_total}" -o /dev/null "https://"$origin | sed 's/^.//')
   # echo $resp
   
-  status=$(echo $resp | grep -oE 'http_code:(\d+)' | sed 's/http_code://')
-  total_time=$(echo $resp | grep -oE 'total_time:(\d+(\.\d+)?)' | sed 's/total_time://')
+  status=$(echo $resp | grep -oE 'http_code:([0-9]+)' | sed 's/http_code://')
+  total_time=$(echo $resp | grep -oE 'total_time:([0-9]+([.0-9]+)?)' | sed 's/total_time://')
   # echo "$status, $total_time"
 
   if [[ $status -eq 200 && $(echo "$total_time < 3" | bc -l) -eq 1 ]]; then
