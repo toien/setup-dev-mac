@@ -39,6 +39,8 @@ Desktop.ini
 # Compiled Python files
 *.pyc
 **/*.pyc
+__pycache__/
+
 
 # Compiled Java files
 .class
@@ -61,3 +63,18 @@ target
 .idea
 *.iml
 .idea/
+
+# Jupyter notebook checkpoint files
+.ipynb_checkpoints/
+
+# Gradle
+.gradle
+
+# Gradle build dir
+build
+
+# AOSP
+.repo
+.git
+out
+

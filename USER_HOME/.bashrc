@@ -40,5 +40,14 @@ alias ll='ls -alh'
 alias grep='grep --color=auto'
 
 # maven
-export MAVEN_OPTS="-Xmx256m ”
+export MAVEN_OPTS="-Xmx256m"
 
+CDPATH=~/.paths
+
+export JAVA_HOME='/opt/jdk-11.0.2'
+export PATH=$JAVA_HOME/bin:$PATH
+
+export XDG_CONFIG_HOME=$HOME/.config
+
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+export FZF_DEFAULT_COMMAND='fd --type file'

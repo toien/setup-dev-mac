@@ -84,6 +84,38 @@ else
   let &t_EI = "\e[1 q"
 endif
 
+
+" Sync remote register '"' to local clipboard when: '""y' explicitly
+function! Osc52Yank()
+    " 注意：如果你的 Vim 不支持 clipboard，复制时需要使用 " 寄存器
+    if v:event.regname !=# '"'
+        return
+    endif
+
+    " 自动获取最后一次复制的内容（使用 v:event.regcontents 避免寄存器偏移）
+    let l:content = join(v:event.regcontents, "\n")
+    if empty(l:content) | return | endif
+
+    " 进行 Base64 编码
+    let l:b64 = system("base64 | tr -d '\n'", l:content)
+    let l:osc = "\e]52;c;" . l:b64 . "\x07"
+
+    " Tmux 穿透处理
+    if !empty($TMUX)
+        let l:osc = "\ePtmux;\e" . substitute(l:osc, "\e", "\e\e", "g") . "\e\\"
+    endif
+
+    " 使用直接写入 tty 的方式，这比 echon 在自动命令中更稳定
+    call writefile([l:osc], "/dev/tty", "b")
+endfunction
+
+" 只要发生 y 操作就触发同步
+augroup Osc52
+    autocmd!
+    autocmd TextYankPost * call Osc52Yank()
+augroup END
+
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
@@ -99,9 +131,39 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
+"
 " Fzf Plug Config
-let g:fzf_command_prefix = 'Fzf'
+" let g:fzf_command_prefix = 'Fzf'
+" let g:fzf_prefer_tmux = 0
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-x': 'vsplit' }
+
+let mapleader = " "
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>r :Rg<CR>
+nnoremap <leader>b :Buffers<CR>
+" nnoremap <leader>h :History<CR>
+
+"
 " Airline Plug Config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
+
+"
+" Tagbar Plug Config
+set tags=./tags;,tags;
+
+nnoremap <F8> :TagbarToggle<CR>
+
+let g:tagbar_width = 100
+let g:tagbar_autofocus = 1
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
+
+" 使用 universal-ctags
+let g:tagbar_ctags_bin = 'ctags'
